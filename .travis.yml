@@ -1,0 +1,9 @@
+dist: xenial
+language: crystal
+
+crystal:
+  - latest
+script:
+  - bin/ameba
+  - crystal tool format --check
+  - crystal spec --order random
