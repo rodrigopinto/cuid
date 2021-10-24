@@ -2,7 +2,9 @@ require "./spec_helper"
 require "../src/cuid/json"
 
 private class JSONWithCUID
-  JSON.mapping value: CUID
+  include JSON::Serializable
+
+  property value : CUID
 end
 
 describe CUID do

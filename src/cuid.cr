@@ -1,7 +1,7 @@
 require "big"
 
 struct CUID
-  VERSION = "0.1.0"
+  VERSION = "1.1.0"
 
   @bytes : StaticArray(UInt8, 25)
 
@@ -79,7 +79,7 @@ struct CUID
   # Returns a cryptographically secure random number in base 36
   private def self.randomized
     value = Random::Secure.rand(RAND_MAX - RAND_MIN) + RAND_MIN
-    value.to_big_i.to_s(BASE)
+    value.to_big_i.to_s(BASE.to_i)
   end
 
   # Adds a padding '0' to the left to complete the length
